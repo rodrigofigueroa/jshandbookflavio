@@ -538,33 +538,59 @@ let spreadObject = {
              let usingEntries = arrayExampleTwo.entries()
              let usingKeys = arrayExampleTwo.keys()
 
-             console.log(usingEntries.next().value)
-             console.log( usingKeys.next().value )
+            //  console.log(usingEntries.next().value)
+            //  console.log( usingKeys.next().value )
 
              // add to an array 
              let adding = [ 'Adding', 'anything' ]
-             console.log( adding )
+            //  console.log( adding )
              // at the final
-                adding.push('one')
-             console.log( adding )
+                // adding.push('one')
+            //  console.log( adding )
              // at the beguinning
-                adding.unshift('hahaha')
-             console.log( adding )
+                // adding.unshift('hahaha')
+            //  console.log( adding )
              // removing from an array
              // final
              adding.pop()
-             console.log( adding )
+            //  console.log( adding )
              //beguinning
              adding.shift()
-             console.log( adding )
+            //  console.log( adding )
              // at random position
-                adding.splice(0, 1)
-             console.log( adding )
+                // adding.splice(0, 1)
+            //  console.log( adding )
              // remove and insert
-                adding.splice( 1, 0 , 'a', '5' )
-                console.log( adding )
+                // adding.splice( 1, 0 , 'a', '5' )
+                // console.log( adding )
             // joining arrays 
 
             let joinA = [1, 2],
                 joinB = [3, 4]
-                console.log( joinA.concat( joinB ) )
+                // console.log( joinA.concat( joinB ) )
+            //look up for a particular thing
+             let lookUp = [ 0 ,1 , 2, 3, 4, 5 ]
+
+            //  console.log( lookUp.indexOf( 2 ) )
+            //  console.log( lookUp.lastIndexOf( 5 ) )
+            //  console.log( lookUp.find( item => item === 4 ) )
+            //  console.log( lookUp.findIndex( item => item === 5 ) )
+            //  console.log( lookUp.includes( 3 ) )
+            //  console.log( lookUp.includes( 3, 1) )
+             //
+            //  console.log( lookUp.slice( 0, 3 ) )
+             // sort array 
+             let arr = [ 1 ,0 ,2 ,3 ,11 , 12, 45 ]
+             //ACSI
+            //  console.log( arr.sort() )
+            //     console.log(arr.reverse())
+            //  // 
+            //  console.log( arr.sort( (a, b) => a - b) )
+            //     console.log(arr.reverse())
+
+            //array to string 
+            // console.log( arr.toString() )
+            // console.log( ...arr)
+            // console.log( arr.join(', ') )
+            // console.log( arr.join('') )
+            // console.log( arr.join(' ') )
