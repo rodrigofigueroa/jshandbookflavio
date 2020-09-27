@@ -594,3 +594,182 @@ let spreadObject = {
             // console.log( arr.join(', ') )
             // console.log( arr.join('') )
             // console.log( arr.join(' ') )
+
+            // loops
+            // for forEach
+            let forArray = [ 'this ', 'this ' ,'this']
+            // for can break and continue
+            //  for( let a = 0; a < forArray.length; a++){
+            //     console.log( forArray[a] )
+            //  }
+            //  forArray.forEach( ( item, index ) => {
+            //      console.log( item )
+            //  } )
+            // while do while
+            let forWhile = 0
+            //can break and continue
+            //  while ( forWhile < forArray.length ) {
+            //     //  console.log( forArray[forWhile], forWhile)
+            //     forWhile++
+            //  }
+            //  do{
+            //      console.log( forArray[ forWhile ] )
+            //      forWhile++
+            //  }while( forWhile <= forArray.length )
+            // for of for in
+             // can break and can continue
+             let objectForIn = {
+                 name: 'D45F0',
+                 age: 30512,
+                 timeOn : '15 hours',
+                 needRepair: false,
+                 needCheck: true
+             }
+            for( arr of forArray ){
+                // console.log(arr)
+            }
+            // with entries
+            for( [ index, value ] of forArray.entries( ) ){
+                // console.log( index , value)
+            }
+            for( const objectProperties in objectForIn){
+                // console.log( `${objectProperties} ${objectForIn[ objectProperties ]}` )
+            }
+            // for of is for property value and for in property names
+
+            // Events
+                // event the inline event ( old version )
+                function buttonClick (){
+                    // console.log('click with the old version') 
+                }
+
+                const xhr = new XMLHttpRequest()
+                // console.log(xhr)
+                //Onloead
+                window.onload = () => {
+                    // console.log(' window event load')
+                }
+
+                // document.querySelector( '#button' ).addEventListener( 'click', 
+                // () => {
+                //     console.log( 'button' )
+                // } )
+                // bubblig
+
+                let container = document.querySelector(' .container '),
+                    button = document.querySelector( '#button' ) 
+
+                    container.style.cssText = ` 
+                    width: 150px;
+                    background: #f2f2f2;
+                    height: 200vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    `
+                container.addEventListener( 'click', 
+                () => {
+                    console.log( 'click container' )
+                },false)
+                button.addEventListener( 'click', 
+                e => {
+                    console.log('click button')
+                    e.stopPropagation()
+                })
+
+                // event 
+
+                document.querySelector( '#button' ).addEventListener( 'click', 
+                event => {
+                    // console.log( event )
+                    // console.log( event.target )
+                })
+
+                window.addEventListener('mousedown', 
+                e => {
+                    // console.log(e.button)
+                    // left 0 right 2
+                })
+
+                window.addEventListener( 'keydown', 
+                e => {
+                    // console.log(e.key)
+                } )
+
+                // most common events
+                // load
+                //mouse mousedown mousemove mouseup click dbclick
+                //keyboard keyup keydown
+                // scroll scroll
+                window.addEventListener( 'click', 
+                e => {
+                    // console.log('click')
+                })
+                window.addEventListener( 'dblclick', 
+                e => {
+                    // console.log('dbclick')
+                })
+                window.addEventListener( 'keydown', 
+                e => {
+                    // console.log(e.key)
+                })
+                window.addEventListener( 'keyup', 
+                e => {
+                    // console.log(e.key)
+                })
+                // window.addEventListener( 'scroll', 
+                // e => {
+                    // console.log(window.scrollY)
+                // })
+                //throttling
+                
+                let cached = null
+                window.addEventListener( 'scroll', 
+                e => {
+                    if( !cached ){
+                            setTimeout( () => {
+                                console.log( window.scrollY )
+                                cached = null
+                            }, 100)
+                        }
+                        cached = e
+                    })
+            // event loop
+            // const bar = () => console.log('bar')
+            // const baz = () => console.log('baz')
+            // const foo = () => {
+            //     console.log('foo')
+            //     bar()
+            //     baz()
+            // }
+            // foo()
+            // queue
+            // const bar = () => console.log('bar')
+            // const baz = () => console.log('baz')
+            // const foo = () => {
+            //     console.log('foo')
+            //     setTimeout( bar, 0)
+            //     baz()
+            // }
+            // foo()
+            //job
+            const bar = () => console.log('bar')
+            const baz = () => console.log('baz')
+            const foo = () => {
+                console.log('foo')
+                setTimeout( bar, 0)
+                new Promise( ( resolve, reject ) => 
+                    resolve(' this be after bar and before baz ')
+                )
+                .then( r => 
+                    console.log(r)
+                )
+                baz()
+            }
+            foo()
+
+                
+
+
+
+
