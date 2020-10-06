@@ -753,23 +753,166 @@ let spreadObject = {
             // }
             // foo()
             //job
-            const bar = () => console.log('bar')
-            const baz = () => console.log('baz')
-            const foo = () => {
-                console.log('foo')
-                setTimeout( bar, 0)
-                new Promise( ( resolve, reject ) => 
-                    resolve(' this be after bar and before baz ')
-                )
-                .then( r => 
-                    console.log(r)
-                )
-                baz()
+            // const bar = () => console.log('bar')
+            // const baz = () => console.log('baz')
+            // const foo = () => {
+            //     console.log('foo')
+            //     setTimeout( bar, 0)
+            //     new Promise( ( resolve, reject ) => 
+            //         resolve(' this be after bar and before baz ')
+            //     )
+            //     .then( r => 
+            //         console.log(r)
+            //     )
+            //     baz()
+            // }
+            // foo()
+            // synchronous y asynchronous y callback
+
+            
+            const doSomething2 = () => {
+                const r = new Promise( (resolve, reject) => {
+                    setTimeout(() => {
+                        resolve('Cool')
+                    },100)
+                } )
+                return r
             }
-            foo()
 
-                
+            const waitForSomething2 = async () => {
+                const r =  await doSomething2()
+                return r
+            }
+
+            // waitForSomething2().then( i => console.log( i ) )
+
+            //chained asyn functions
+
+            const iWatchedSo = () => {
+                return new Promise( res => setTimeout( () => { return res('jijiji')}, 3000) )
+            }
+
+            const iSaw = async () => {
+                return await iWatchedSo() + `i Saw`
+            }
+
+            const iSawAGuy = async () => {
+                return await iSaw() + ` I saw the guy saw`
+            }
+
+            const iSayWhat = () => {
+                return iSawAGuy()
+            }
+
+            // iSayWhat().then( i => console.log( i ))
+
+            // creating promise
+
+            let isDone = false
+
+            // const prm = new Promise( (resol , reject) => {
+            //     if(isDone){
+            //         resol( 'You know that is a great Day')
+            //     }
+            //     if(!isDone){
+            //         reject( 'Well i did Somwthing wring body' )
+            //     }
+            // })
+
+            // prm.then( data => console.log( data ) )
+
+            // consumed promised
+
+            // const prom2 = new Promise( )
+
+            // const isDoneYet = () => {
+            //     prom2
+            //     .then( ok => console.log( ok ))
+            //     .catch( err => console.error( err ) )
+            // }
+
+            //chanied promises
+
+            const status = response => {
+                console.log(response)
+                if( response.status >= 200 && response.status <= 300){
+                    return Promise.resolve( response )
+                }
+
+                return Promise.reject( new Error( response.statusText ) )
+            }
+
+            const json = resp => {
+                console.log( resp.json() )
+                return resp.json()
+            }
+
+            // fetch( './data.json' , {
+            //     method: 'GET'
+            // })
+            // .then( status )
+            // .then( json )
+            // .then( data => console.log( data ) )
+            // .catch( err => console.log( err ) )
+
+            // cascading
+            // const pm1 = new Promise( ( rse , rej ) => {
+            //     setTimeout( () => rse('resole') )
+            // }).then( a => console.log(a))
+            // .catch( err => console.log( err ) )
+            // .catch( err => console.log( err ) )
+
+            // new Promise( ( res, rej )  => {
+            //     throw new Error( ' Error' )
+            // }).catch( (err) => {throw new Error('New')} )
+            // .catch( err => console.log(err))
+
+            //orchestating 
+
+            const f1 = fetch('./data.json')
+            const f2 = fetch('./data.json')
+
+            // Promise.all( [f1, f2] ).then( data => {
+            //     console.log(data)
+            // })
+
+            // Promise.all( [f1, f2] ).then( ([f1, f2]) => {
+            //     console.log( f2 )
+            // } )
+
+            //promise race
+
+            // const onePm = new Promise( ( res, rej ) => {
+            //     return setTimeout( res, 500, 'first')
+            // } )
+
+            // const secPm = new Promise( ( res, rej )  => {
+            //     return setTimeout( res, 500, 'second')
+            // })
+
+            // Promise.race( [onePm, secPm] )
+            // .then( object  =>  console.log(object) )
 
 
+            // async await
+            /**
+             * The solution for callback hell
+             * 2015 promises 2017 async await functions
+             * are the use of generators
+             */
 
+            const doSomethingAsync = () => {
+                return new Promise( resolve => {
+                    setTimeout(() => {
+                        resolve('I did Something Async and Await after 3 seconds')
+                    }, 3000)
+                })
+            }
 
+            const getTheAsyncDofunction = async () => {
+                console.log( await doSomethingAsync())
+            }
+            // console.log('Before')
+            // getTheAsyncDofunction()
+            // console.log('After')
+            
