@@ -916,3 +916,214 @@ let spreadObject = {
             // getTheAsyncDofunction()
             // console.log('After')
             
+            //async await
+            /**
+             * Async await are really interesting 
+             * the prepend async into functions 
+             * return a promise
+             */
+
+            const asyncWithoutPRomise = async () => {
+                return 'I have async but im not a promise'
+            }
+            // console.log( alert )
+            // asyncWithoutPRomise().then( alert )
+
+            const asyncFunctionWithPromise = async () => {
+                return Promise.resolve('Yeah! im a promise!')
+            }
+            // asyncFunctionWithPromise().then( alert )
+
+            // its very readable
+
+            const withPromises = async  () => {
+                return new Promise( resolve => {
+                    resolve(fetch('./user.json'))
+                })
+                .then( data => data.json() )
+                .then( user => fetch(`./${user.user1.name}.json`) )
+                .then( age => age.json() )
+                .then( first => first.Rodrigo.age )
+            }
+            // withPromises().then( data => console.log(data) )
+
+            const withAsyncAwait = async () => {
+                const user          = await fetch( './user.json' )
+                const nameUserJson  = await user.json()
+                const userName      = await nameUserJson.user1.name
+                const fetchUser     = await fetch( `./${userName}.json` )
+                const ageUserJson   = await fetchUser.json()
+                const ageUser       = await ageUserJson.Rodrigo.age
+                return ageUser
+            }
+            // withAsyncAwait( ).then( user => console.log( user ) )
+            // multiple Async functions in Series
+
+            const iDidSomethingAsync = () => {
+                return new Promise( resolve => {
+                    setTimeout( () =>{ 
+                        resolve(
+                            'I did Something Async'
+                        )
+                    }, 3000)
+                })
+            }
+
+            const iWasWatchingSomeoneDoingSomething = async () => {
+                return await  iDidSomething() +` hi and me watching`
+            }
+
+            const iSawSomeoneWatchingSomeone = async () => {
+                return await  iWasWatchingSomeoneDoingSomething() + ` and I'm another One`
+            }
+
+            const iJustPassOut = async () => {
+                return await iSawSomeoneWatchingSomeone()
+            }
+            // iJustPassOut().then( data => console.log( data ))
+
+            // weird things with JavaScript 
+
+            // const operations = []
+            // for( var i = 0; i < 5; i++){
+            //     operations.push( () => {
+            //         console.log(i)
+            //     })
+            // }
+
+            // for( operation of operations ){
+            //     operation()
+            // }
+
+            // solve
+            // const operations = []
+            // for( let i = 0; i < 5; i++){
+            //     operations.push( () => {
+            //         console.log(i)
+            //     })
+            // }
+
+            // for( operation of operations ){
+            //     operation()
+            // }
+            
+            // const operations = []
+            // for( var i = 0; i < 5; i++){
+            //     operations.push( ((j) => {
+            //         return () => console.log(j)
+            //     })(i) )
+            // }
+
+            // for( operation of operations ){
+            //     operation()
+            // }
+
+            // setTimeout()
+
+            // setTimeout(() => {
+                // console.log('Do something after two sec')
+            // },2000)
+            // setTimeout(() => {
+                // document.write('Do something after 5 sec')
+            // },5000)
+
+            //it receives a functions and his parameters
+
+            // const myFunctionDelay = ( ( firstParameter, secParameter ) => {
+            //     console.log( 'after 2 sec', firstParameter, secParameter )
+            // })
+
+            // setTimeout( myFunctionDelay, 2000 , 'bitcoin', ' two Sec')
+
+            // const id = setTimeout( () => {
+            //     console.log('change mind')
+            // }, 3000)
+            // clearTimeout(id)
+
+            // using 0 executes ASAP
+
+            // setTimeout( () => {
+                // console.log('after')
+            // }, 0)
+            // console.log('before')
+
+                // setInterval( () => {
+                //     //run every 2 sec
+                // }, 2000)
+        // let idInterval = setInterval(() => {
+        //     if( something === 'huhu' ){
+        //         clearInterval( idInterval )
+        //     }
+        //     else{
+        //         // do other things
+        //     }
+        // }, 2000)
+        
+        // to avoid the setTimeout proble of recursive
+
+
+        // this 
+
+        // this in stric Mode 
+        /**
+         * outside the object is undefined or window browser this
+         * it doesnt work in arrow functions
+         */
+
+         // bind
+         const car2 = {
+             maker  : 'Ford',
+             model  : 'Fiesta',
+             drive(){
+                return `I'm Driving a ${this.maker} ${this.model}`
+             }
+         }
+
+        //  console.log(car2.drive())
+        
+        const car3 = {
+            maker: 'Toyota',
+            model: 'Fieta'
+        }
+
+        const drive = function(){
+            return `I'm Driving a ${this.maker} ${this.model}`
+        }.bind( car3 )
+
+        console.log( drive() )
+
+        const car4 = {
+            maker: 'Ford',
+            model: 'Fiesta',
+            drive: function(){
+                return `I'm Driving a ${this.maker} ${this.model}`
+            }
+        }
+        const car5 = {
+            maker: 'Toyota',
+            model: 'Sienna'
+        }
+        console.log( car4.drive.bind( car5 )() )
+
+        // call() and apply()
+
+        const car6 = {
+            maker: 'Ford',
+            model: 'Fiesta'
+        }
+
+        const drive2 = function( klh ){
+
+            return `I'm driving with a ${this.maker} ${this.model} ${klh}`
+        }
+
+        console.log( drive2.call( car6, '100' ))
+        console.log( drive2.apply( car6, ['100'] ))
+
+        // this brower event
+
+        let someButton = document.querySelector('#button')
+            someButton.addEventListener( 'click', function(){
+                console.log(this)
+            }.bind(this)
+            )
