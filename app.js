@@ -1090,7 +1090,7 @@ let spreadObject = {
             return `I'm Driving a ${this.maker} ${this.model}`
         }.bind( car3 )
 
-        console.log( drive() )
+        // console.log( drive() )
 
         const car4 = {
             maker: 'Ford',
@@ -1103,7 +1103,7 @@ let spreadObject = {
             maker: 'Toyota',
             model: 'Sienna'
         }
-        console.log( car4.drive.bind( car5 )() )
+        // console.log( car4.drive.bind( car5 )() )
 
         // call() and apply()
 
@@ -1117,8 +1117,8 @@ let spreadObject = {
             return `I'm driving with a ${this.maker} ${this.model} ${klh}`
         }
 
-        console.log( drive2.call( car6, '100' ))
-        console.log( drive2.apply( car6, ['100'] ))
+        // console.log( drive2.call( car6, '100' ))
+        // console.log( drive2.apply( car6, ['100'] ))
 
         // this brower event
 
@@ -1127,3 +1127,89 @@ let spreadObject = {
                 console.log(this)
             }.bind(this)
             )
+        
+         // stric mode 
+
+            /**
+             * to enabled stric mode you need 'use strict' on top 
+             * of the document or inside or a function
+             */
+
+            // 'use strict'
+            // const stricMode = (a,a,b) => {
+            //     'use strict'
+            //     console.log( a,a,b)
+            // }
+            // (() => {
+            //     stricMode()
+            // })()
+
+            // variables
+
+            // ;(() =>{
+            //     'use strict'
+            //     hey = 'hey'
+            //     console.log(hey )
+            // })() 
+            // ;(function(){
+            //     'use strict'
+            //     you = 'you'
+            //     console.log( you)
+            // }())
+
+            // define a property object not writable
+            // ;(() => {
+            //     'use strict'
+            //     const car = {}
+            //     Object.defineProperty( car, 'color', { toy: 'maz steel'})
+            //     car.color = 'blue'
+            // })()
+
+            //getters
+            const cars = {
+                get color(){
+                    return 'blue'
+                }
+            }
+
+            cars.color = 'red'
+            ;(()=> {
+                // 'use strict'
+                cars.color = 'white'
+            })()
+
+            const littleCar = { small: 12 }
+            Object.preventExtensions(littleCar)
+            littleCar.color = 'red'
+            ;(() => {
+                // 'use strict'
+                littleCar.date = new Date(2020)
+                // console.log(littleCar)
+            })()
+            
+            // ;(()=> {
+            //     // 'use strict'
+            //     // true.false = ''
+            //     var test = 'test'
+            //     test.testing = 'true'
+            //     test.testing
+            // })()
+
+            ;(() => {
+                'use strict'
+                const reloj = {
+                    tik : '1',
+                    tok : '5'
+                }
+                // delete Object.prototype   
+                console.log(reloj.tik)
+            })()
+
+            ;(() => {
+                console.log(010)
+            })()
+            ;(() => {
+                'use strict'
+                // console.log(010)
+                console.log(0o10)
+            })()
