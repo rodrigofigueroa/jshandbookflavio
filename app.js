@@ -31,7 +31,7 @@ class Loading extends Phone{
     }
 
     starting(){
-        return `${this.logo} ${this.logo}`
+        return `${this.name} ${this.logo}`
     }
 
 }
@@ -1195,21 +1195,129 @@ let spreadObject = {
             //     test.testing
             // })()
 
-            ;(() => {
-                'use strict'
-                const reloj = {
-                    tik : '1',
-                    tok : '5'
-                }
-                // delete Object.prototype   
-                console.log(reloj.tik)
-            })()
+            // ;(() => {
+            //     'use strict'
+            //     const reloj = {
+            //         tik : '1',
+            //         tok : '5'
+            //     }
+            //     // delete Object.prototype   
+            //     console.log(reloj.tik)
+            // })()
 
-            ;(() => {
-                console.log(010)
-            })()
-            ;(() => {
-                'use strict'
-                // console.log(010)
-                console.log(0o10)
-            })()
+            // ;(() => {
+            //     console.log(010)
+            // })()
+            // ;(() => {
+            //     'use strict'
+            //     // console.log(010)
+            //     console.log(0o10)
+            // })()
+
+            /// IIFF
+
+            // ;(function(){
+            //     console.log('IIFE')
+            // })()
+            // ;( function(){
+            //     console.log('IIFE')
+            // }())
+            // ;(() => {
+            //     console.log('IIFE Arrow')
+            // })()
+
+            // ;-(function(){
+            //     console.log('-')
+            // })()
+            // ;+(function(){
+            //     console.log('+')
+            // })()
+            // ;!(function(){
+            //     console.log('!')
+            // })()
+
+            // ;(function doSomethingplease(){
+            //     console.log('Please')
+            // })();
+
+            /**
+             * Math Operators
+             */
+            // console.log( 1 + 2 )
+            // console.log( 1 + '2' ) // with string concat the string
+            // console.log( 1 - 2 )
+            // console.log( 10 / 2 )
+            // console.log(  1 / 0 )
+            // console.log( 1 / -0 )
+            // console.log( 2 * 2 )
+            // console.log( 20 % 5 )
+            // console.log( 20 % 7 )
+            // console.log( 20 % 0 ) // NaN is equal to Not a Number
+            // console.log( 20 ** 2 )
+            // // unary operators
+            // let x = 0
+            // console.log( ++x )
+            // console.log( x ) 
+            // console.log( x++)
+            // console.log( x )
+            // let z = 4
+            // console.log( --z )
+            // console.log( z )
+            // console.log( z-- )
+            // console.log( z )
+            // let w = 2
+            // console.log( -w  )
+            // let s = 2
+            // console.log( +s )
+            // s = '2'
+            // console.log( s )
+            // console.log( +s )
+
+            // assignment shortcut
+
+            // let g = 0
+            // console.log( g += 5 )
+            // console.log( g -= 2 )
+            // console.log( g /= 2 )
+            // console.log( g *= 2 )
+            // console.log( g **= 2 )
+            // console.log( g %= 2 )
+
+
+            // console.log( 1 * 2 + 5 / 2 % 2 )
+            // Math.object Constan
+            // console.log( Math.PI )
+            // console.log( Math.LOG2E )
+            // console.log( Math.E)
+            // console.log( Math.SQRT2 )
+
+            // MAth Object
+
+            // console.log( Math.round( 2.1 ) )
+            // console.log( Math.round( 2.7 ) )
+            // console.log( Math.floor( 2.1) ) 
+            // console.log( Math.abs( 3.2 ) )
+            // console.log( Math.sin( 1 ) )
+            // console.log( Math.sin( 1 ) )
+            // console.log( Math.cos( 1 ) )
+            // console.log( Math.max(10 ,8, 9, 4) )
+            // console.log( Math.min(10 ,8, 9, 4) )
+            // console.log( Math.round( Math.random( ) ) )
+            // console.log( Math.sqrt(6) )
+            // console.log( Math.exp(6) )
+
+    // import 
+
+    // import default from './uppercase.js'
+    
+    // console.log( toUppserCase('test') )
+    
+    // import more things
+    // import * as upp from './uppercase.js'
+
+    // import { a, b, c } from './uppercase.js'
+    
+    // import { a, b as two } from './uppercase.js'
+
+    // import React , { Component } from 'react'
+    
